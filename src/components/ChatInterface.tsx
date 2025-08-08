@@ -168,7 +168,8 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
                         __html: formatMessage(message.content),
                       }}
                     />
-                    {message.isStreaming && (
+                    {/* Show inline "Thinking..." loader only if NOT globally loading */}
+                    {message.isStreaming && !isLoading && (
                       <div className="flex items-center gap-1 mt-2">
                         <Loader2 className="h-3 w-3 animate-spin" />
                         <span className="text-xs">Thinking...</span>
@@ -179,7 +180,8 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
               </div>
             ))
           )}
-          {isLoading && (
+          {/* Only show the global "AI is thinking..." loader if no streaming message exists */}
+          {isLoading && !messages.some(m => m.isStreaming) && (
             <div className="flex gap-3 justify-start">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-muted text-muted-foreground flex items-center justify-center">
                 <Bot className="h-4 w-4" />
