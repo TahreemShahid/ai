@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PDF Q&A App Design System - Professional Intelligence Theme */
+
+@layer base {
+  :root {
+    /* Background System */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    /* Intelligence Brand Colors */
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 263 70% 65%;
+    
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    /* Interface Colors */
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 240 5% 90%;
+
+    /* System Colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 263 70% 50%;
+
+    /* Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%), hsl(220 70% 55%));
+    --gradient-glow: linear-gradient(135deg, hsl(263 70% 50% / 0.3), hsl(220 70% 55% / 0.3));
+    --gradient-subtle: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 8% 6%));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(263 70% 50% / 0.3);
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+    
+    /* Upload Area */
+    --upload-active: 263 70% 50% / 0.1;
+    --upload-border: 263 70% 50% / 0.3;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-subtle);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .upload-area {
+    @apply border-2 border-dashed rounded-xl p-8 text-center transition-all duration-300;
+    border-color: hsl(var(--upload-border));
+    background: hsl(var(--upload-active));
+  }
+  
+  .upload-area:hover {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--upload-active));
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .upload-area.dragover {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+    transform: scale(1.02);
+  }
+
+  .answer-section {
+    @apply rounded-xl p-6 border;
+    background: hsl(var(--card));
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .source-chunk {
+    @apply rounded-lg p-4 border-l-4 bg-muted/50;
+    border-left-color: hsl(var(--primary));
+  }
+}
